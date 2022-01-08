@@ -1,0 +1,33 @@
+.page {
+  margin: auto;
+  position: absolute;
+  left:  0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  height: 200px;
+  box-shadow: 0 0 10px 0px #333;
+  padding: 16px;
+  .title {
+    background: #ccc;
+    padding: 8px;
+  }
+  .content {
+    padding: 10px 0;
+    div {
+      padding: 4px;
+      cursor: pointer;
+      &:hover {
+        background: #3967FF;
+      }
+    }
+    .active {
+      background: #3967FF;
+    }
+  }
+  .button {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

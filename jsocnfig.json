@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators":true,
+    "baseUrl": ".",
+    "paths": {
+      "@assets": [
+        "src\\assets"
+      ],
+      "@assets/*": [
+        "src\\assets/*"
+      ],
+      "@": [
+        "src"
+      ],
+      "@/*": [
+        "src/*"
+      ],
+      "@components": [
+        "src\\components"
+      ],
+      "@components/*": [
+        "src\\components/*"
+      ],
+      "@router": [
+        "src\\router"
+      ],
+      "@router/*": [
+        "src\\router/*"
+      ],
+      "@stores": [
+        "src\\stores"
+      ],
+      "@stores/*": [
+        "src\\stores/*"
+      ],
+      "@pages": [
+        "src\\pages"
+      ],
+      "@pages/*": [
+        "src\\pages/*"
+      ],
+      "@utils": [
+        "src\\utils"
+      ],
+      "@utils/*": [
+        "src\\utils/*"
+      ]
+    },
+    "jsx": "preserve"
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
