@@ -78,6 +78,14 @@ function Friends() {
     }
   };
   const baseUrl = 'http://localhost:8989';
+  function getName (name) {
+    const str =decodeURI(name.replace(/%/g, '%25')).replace(/(\t|\n)/g,'')
+    const arr = str.split('\x1A')
+    const wechatName = arr[0]
+    const remark =arr[1].split('\x12')[0]
+    const isMark = remark.match(/[\u4e00-\u9fa5]/)
+    return isMark ? remark : wechatName
+  }
   return (
     <div className="f-page">
       <div className="title">朋友列表</div>
@@ -86,8 +94,9 @@ function Friends() {
           <Tabs tabPosition="left" style={{ height: '90%' }} onTabClick={(key) => setActiveId(key)}>
             {keys.map((i) => {
               const item = (friends || {})[i];
+              const name = getName(item.nameInfo)
               return (
-                <TabPane tab={decodeURI(item.nameInfo.replace(/%/g, '%25')).split('\x12')[0]} key={i} />
+                <TabPane tab={ name } key={i} />
               );
             })}
           </Tabs>
@@ -106,7 +115,7 @@ function Friends() {
         </div>
         <Spin spinning={loading} wrapperClassName="test">
           <div className="tabs-content">
-            <div className="title">{friends[activeId] ? decodeURI(friends[activeId].nameInfo.replace(/%/g, '%25')).split('\x12')[0] : ''}</div>
+            <div className="title">{friends[activeId] ? getName(friends[activeId].nameInfo) : ''}</div>
             <div className="msg-content">
               {
                 (deatailData || []).map((item) => {
